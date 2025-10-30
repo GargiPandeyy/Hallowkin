@@ -52,3 +52,12 @@ h1 {
     margin: 0 auto;
     overflow: hidden;
 }
+
+#basket {
+    position: absolute;
+    bottom: 20px;
+    left: 350px;
+    font-size: 60px;
+    cursor: pointer;
+    user-select: none;
+}
