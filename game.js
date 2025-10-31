@@ -12,9 +12,10 @@ let scoreDisplay = document.getElementById('score');
 let highScoreDisplay = document.getElementById('highScore');
 let timeLeft = 60;
 let timerDisplay = document.getElementById('timer');
-let gameRunning = true;
+let gameRunning = false;
 let pumpkinInterval;
 let countdownInterval;
+let gameStarted = false;
 
 function setDifficulty(level) {
     let buttons = document.querySelectorAll('.diffBtn');
@@ -152,6 +153,18 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-pumpkinInterval = setInterval(createPumpkin, 1500);
-countdownInterval = setInterval(countdown, 1000);
-gameLoop();
+function startGame() {
+    if(gameStarted) return;
+
+    document.getElementById('startScreen').style.display = 'none';
+    document.querySelector('.scoreBoard').style.display = 'flex';
+    document.querySelector('.difficultyButtons').style.display = 'flex';
+    document.getElementById('game').style.display = 'block';
+
+    gameRunning = true;
+    gameStarted = true;
+
+    pumpkinInterval = setInterval(createPumpkin, spawnRate);
+    countdownInterval = setInterval(countdown, 1000);
+    gameLoop();
+}

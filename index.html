@@ -9,17 +9,25 @@
 <body>
     <div class="container">
         <h1>🎃 HALLOWKIN 🎃</h1>
-        <div class="scoreBoard">
+        <div id="startScreen">
+            <div class="startContent">
+                <h2>CATCH THE PUMPKINS!</h2>
+                <p>Move your basket with arrow keys or mouse</p>
+                <p>Catch as many pumpkins as you can before time runs out!</p>
+                <button class="startBtn" onclick="startGame()">START GAME</button>
+            </div>
+        </div>
+        <div class="scoreBoard" style="display: none;">
             <div class="scoreItem">Score: <span id="score">0</span></div>
             <div class="scoreItem">Time: <span id="timer">60</span></div>
             <div class="scoreItem">High Score: <span id="highScore">0</span></div>
         </div>
-        <div class="difficultyButtons">
+        <div class="difficultyButtons" style="display: none;">
             <button class="diffBtn active" onclick="setDifficulty('easy')">EASY</button>
             <button class="diffBtn" onclick="setDifficulty('medium')">MEDIUM</button>
             <button class="diffBtn" onclick="setDifficulty('hard')">HARD</button>
         </div>
-        <div id="game">
+        <div id="game" style="display: none;">
             <div id="gameArea">
                 <div id="basket">🧺</div>
                 <div id="gameOver" style="display: none;">

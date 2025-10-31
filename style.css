@@ -180,3 +180,55 @@ h1 {
     transform: scale(1.1);
     box-shadow: 0 0 30px #ff6b35;
 }
+
+#startScreen {
+    width: 800px;
+    margin: 0 auto;
+    padding: 80px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 5px solid #ff6b35;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+}
+
+.startContent h2 {
+    font-size: 3rem;
+    color: #ff6b35;
+    text-shadow: 0 0 20px #ff6b35;
+    margin-bottom: 30px;
+}
+
+.startContent p {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.startBtn {
+    margin-top: 30px;
+    padding: 20px 60px;
+    font-size: 2rem;
+    font-weight: bold;
+    background: #ff6b35;
+    color: #000;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 30px #ff6b35;
+    transition: all 0.3s;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.startBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px #ff6b35;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 30px #ff6b35;
+    }
+    50% {
+        box-shadow: 0 0 50px #ff6b35, 0 0 70px #ff00ff;
+    }
+}
