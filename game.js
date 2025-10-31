@@ -29,10 +29,21 @@ function createPumpkin() {
     let pumpkin = document.createElement('div');
     pumpkin.className = 'pumpkin';
     pumpkin.innerHTML = '🎃';
-    pumpkin.style.left = Math.random() * (gameWidth - 50) + 'px';
+    let x = Math.random() * (gameWidth - 50);
+    pumpkin.style.left = x + 'px';
     pumpkin.style.top = '-50px';
     gameArea.appendChild(pumpkin);
-    pumpkins.push({element: pumpkin, y: -50});
+    pumpkins.push({element: pumpkin, y: -50, x: x});
+}
+
+function checkCollision(pumpkin) {
+    let basketY = 520;
+    if(pumpkin.y >= basketY && pumpkin.y <= basketY + 60) {
+        if(pumpkin.x >= basketX && pumpkin.x <= basketX + basketWidth) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function gameLoop() {
@@ -40,7 +51,10 @@ function gameLoop() {
         pumpkins[i].y += fallSpeed;
         pumpkins[i].element.style.top = pumpkins[i].y + 'px';
 
-        if(pumpkins[i].y > 600) {
+        if(checkCollision(pumpkins[i])) {
+            pumpkins[i].element.remove();
+            pumpkins.splice(i, 1);
+        } else if(pumpkins[i].y > 600) {
             pumpkins[i].element.remove();
             pumpkins.splice(i, 1);
         }
