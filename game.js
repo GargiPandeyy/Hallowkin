@@ -9,6 +9,10 @@ let score = 0;
 let highScore = 0;
 let scoreDisplay = document.getElementById('score');
 let highScoreDisplay = document.getElementById('highScore');
+let timeLeft = 60;
+let timerDisplay = document.getElementById('timer');
+let gameRunning = true;
+let pumpkinInterval;
 
 document.addEventListener('keydown', function(e) {
     if(e.key === 'ArrowLeft' && basketX > 0) {
@@ -50,7 +54,19 @@ function checkCollision(pumpkin) {
     return false;
 }
 
+function countdown() {
+    if(timeLeft > 0) {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+    } else {
+        gameRunning = false;
+        clearInterval(pumpkinInterval);
+    }
+}
+
 function gameLoop() {
+    if(!gameRunning) return;
+
     for(let i = pumpkins.length - 1; i >= 0; i--) {
         pumpkins[i].y += fallSpeed;
         pumpkins[i].element.style.top = pumpkins[i].y + 'px';
@@ -72,5 +88,6 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-setInterval(createPumpkin, 1500);
+pumpkinInterval = setInterval(createPumpkin, 1500);
+setInterval(countdown, 1000);
 gameLoop();
