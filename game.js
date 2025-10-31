@@ -14,6 +14,7 @@ let timeLeft = 60;
 let timerDisplay = document.getElementById('timer');
 let gameRunning = true;
 let pumpkinInterval;
+let countdownInterval;
 
 function setDifficulty(level) {
     let buttons = document.querySelectorAll('.diffBtn');
@@ -82,7 +83,30 @@ function countdown() {
     } else {
         gameRunning = false;
         clearInterval(pumpkinInterval);
+        clearInterval(countdownInterval);
+        showGameOver();
     }
+}
+
+function showGameOver() {
+    document.getElementById('finalScore').textContent = score;
+    document.getElementById('gameOver').style.display = 'block';
+}
+
+function restartGame() {
+    score = 0;
+    timeLeft = 60;
+    gameRunning = true;
+    scoreDisplay.textContent = 0;
+    timerDisplay.textContent = 60;
+    document.getElementById('gameOver').style.display = 'none';
+
+    pumpkins.forEach(p => p.element.remove());
+    pumpkins = [];
+
+    pumpkinInterval = setInterval(createPumpkin, spawnRate);
+    countdownInterval = setInterval(countdown, 1000);
+    gameLoop();
 }
 
 function gameLoop() {
@@ -110,5 +134,5 @@ function gameLoop() {
 }
 
 pumpkinInterval = setInterval(createPumpkin, 1500);
-setInterval(countdown, 1000);
+countdownInterval = setInterval(countdown, 1000);
 gameLoop();

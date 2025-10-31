@@ -116,3 +116,52 @@ h1 {
     user-select: none;
     pointer-events: none;
 }
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 50px;
+    border: 5px solid #ff6b35;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 100;
+}
+
+#gameOver h2 {
+    font-size: 3rem;
+    color: #ff6b35;
+    text-shadow: 0 0 20px #ff6b35;
+    margin-bottom: 20px;
+}
+
+#gameOver p {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+#finalScore {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.replayBtn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: #ff6b35;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff6b35;
+    transition: all 0.3s;
+}
+
+.replayBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #ff6b35;
+}
