@@ -108,6 +108,11 @@ h1 {
     font-size: 60px;
     cursor: pointer;
     user-select: none;
+    transition: transform 0.1s;
+}
+
+#basket:hover {
+    transform: scale(1.1);
 }
 
 .pumpkin {
