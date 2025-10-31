@@ -109,6 +109,24 @@ function restartGame() {
     gameLoop();
 }
 
+function playSound() {
+    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let oscillator = audioCtx.createOscillator();
+    let gainNode = audioCtx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    oscillator.frequency.value = 600;
+    oscillator.type = 'sine';
+
+    gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+
+    oscillator.start(audioCtx.currentTime);
+    oscillator.stop(audioCtx.currentTime + 0.2);
+}
+
 function gameLoop() {
     if(!gameRunning) return;
 
@@ -123,6 +141,7 @@ function gameLoop() {
                 highScore = score;
                 highScoreDisplay.textContent = highScore;
             }
+            playSound();
             pumpkins[i].element.remove();
             pumpkins.splice(i, 1);
         } else if(pumpkins[i].y > 600) {
