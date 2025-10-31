@@ -14,7 +14,24 @@
                 <h2>CATCH THE PUMPKINS!</h2>
                 <p>Move your basket with arrow keys or mouse</p>
                 <p>Catch as many pumpkins as you can before time runs out!</p>
-                <button class="startBtn" onclick="startGame()">START GAME</button>
+                <button class="startBtn" onclick="showDifficultyScreen()">START GAME</button>
+            </div>
+        </div>
+        <div id="difficultyScreen" style="display: none;">
+            <div class="difficultyContent">
+                <h2>SELECT DIFFICULTY</h2>
+                <button class="diffSelectBtn" onclick="startGameWithDifficulty('easy')">
+                    <span class="diffTitle">EASY</span>
+                    <span class="diffDesc">Slow pumpkins, more time to react</span>
+                </button>
+                <button class="diffSelectBtn" onclick="startGameWithDifficulty('medium')">
+                    <span class="diffTitle">MEDIUM</span>
+                    <span class="diffDesc">Moderate speed, good challenge</span>
+                </button>
+                <button class="diffSelectBtn" onclick="startGameWithDifficulty('hard')">
+                    <span class="diffTitle">HARD</span>
+                    <span class="diffDesc">Fast pumpkins, test your reflexes!</span>
+                </button>
             </div>
         </div>
         <div class="scoreBoard" style="display: none;">

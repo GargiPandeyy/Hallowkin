@@ -153,10 +153,36 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-function startGame() {
+function showDifficultyScreen() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('difficultyScreen').style.display = 'block';
+}
+
+function startGameWithDifficulty(level) {
     if(gameStarted) return;
 
-    document.getElementById('startScreen').style.display = 'none';
+    if(level === 'easy') {
+        fallSpeed = 3;
+        spawnRate = 1500;
+    } else if(level === 'medium') {
+        fallSpeed = 5;
+        spawnRate = 1000;
+    } else if(level === 'hard') {
+        fallSpeed = 7;
+        spawnRate = 700;
+    }
+
+    let buttons = document.querySelectorAll('.diffBtn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if(level === 'easy') {
+        buttons[0].classList.add('active');
+    } else if(level === 'medium') {
+        buttons[1].classList.add('active');
+    } else if(level === 'hard') {
+        buttons[2].classList.add('active');
+    }
+
+    document.getElementById('difficultyScreen').style.display = 'none';
     document.querySelector('.scoreBoard').style.display = 'flex';
     document.querySelector('.difficultyButtons').style.display = 'flex';
     document.getElementById('game').style.display = 'block';

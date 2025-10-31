@@ -232,3 +232,51 @@ h1 {
         box-shadow: 0 0 50px #ff6b35, 0 0 70px #ff00ff;
     }
 }
+
+#difficultyScreen {
+    width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 5px solid #ff6b35;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+}
+
+.difficultyContent h2 {
+    font-size: 3rem;
+    color: #ff6b35;
+    text-shadow: 0 0 20px #ff6b35;
+    margin-bottom: 40px;
+}
+
+.diffSelectBtn {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 25px;
+    background: rgba(255, 107, 53, 0.2);
+    border: 3px solid #ff6b35;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.diffSelectBtn:hover {
+    background: rgba(255, 107, 53, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+}
+
+.diffTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b35;
+}
+
+.diffDesc {
+    font-size: 1.2rem;
+    color: #fff;
+}
