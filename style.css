@@ -55,6 +55,36 @@ h1 {
     text-shadow: 0 0 10px #00ff00;
 }
 
+.difficultyButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.diffBtn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: rgba(255, 107, 53, 0.3);
+    color: #ff6b35;
+    border: 3px solid #ff6b35;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.diffBtn:hover {
+    background: rgba(255, 107, 53, 0.5);
+    transform: scale(1.05);
+}
+
+.diffBtn.active {
+    background: #ff6b35;
+    color: #000;
+    box-shadow: 0 0 20px #ff6b35;
+}
+
 #game {
     position: relative;
     margin: 0 auto;

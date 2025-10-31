@@ -5,6 +5,7 @@ let basketWidth = 60;
 let gameWidth = 800;
 let pumpkins = [];
 let fallSpeed = 3;
+let spawnRate = 1500;
 let score = 0;
 let highScore = 0;
 let scoreDisplay = document.getElementById('score');
@@ -13,6 +14,26 @@ let timeLeft = 60;
 let timerDisplay = document.getElementById('timer');
 let gameRunning = true;
 let pumpkinInterval;
+
+function setDifficulty(level) {
+    let buttons = document.querySelectorAll('.diffBtn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    if(level === 'easy') {
+        fallSpeed = 3;
+        spawnRate = 1500;
+    } else if(level === 'medium') {
+        fallSpeed = 5;
+        spawnRate = 1000;
+    } else if(level === 'hard') {
+        fallSpeed = 7;
+        spawnRate = 700;
+    }
+
+    clearInterval(pumpkinInterval);
+    pumpkinInterval = setInterval(createPumpkin, spawnRate);
+}
 
 document.addEventListener('keydown', function(e) {
     if(e.key === 'ArrowLeft' && basketX > 0) {
