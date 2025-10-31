@@ -5,6 +5,10 @@ let basketWidth = 60;
 let gameWidth = 800;
 let pumpkins = [];
 let fallSpeed = 3;
+let score = 0;
+let highScore = 0;
+let scoreDisplay = document.getElementById('score');
+let highScoreDisplay = document.getElementById('highScore');
 
 document.addEventListener('keydown', function(e) {
     if(e.key === 'ArrowLeft' && basketX > 0) {
@@ -52,6 +56,12 @@ function gameLoop() {
         pumpkins[i].element.style.top = pumpkins[i].y + 'px';
 
         if(checkCollision(pumpkins[i])) {
+            score += 10;
+            scoreDisplay.textContent = score;
+            if(score > highScore) {
+                highScore = score;
+                highScoreDisplay.textContent = highScore;
+            }
             pumpkins[i].element.remove();
             pumpkins.splice(i, 1);
         } else if(pumpkins[i].y > 600) {

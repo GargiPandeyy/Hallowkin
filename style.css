@@ -37,6 +37,24 @@ h1 {
     }
 }
 
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.scoreItem {
+    font-size: 1.5rem;
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+.scoreItem span {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
 #game {
     position: relative;
     margin: 0 auto;
